@@ -3,169 +3,405 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice Form</title>
+    <title>4-in-1 Invoice Form</title>
     <style>
+        @page {
+            size: A4;
+            margin: 5mm;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 10px;
             background-color: #f9f9f9;
         }
-        .container {
-            width: 80%;
+
+        .page {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 5mm;
+            width: 210mm;
+            height: 297mm;
             margin: 0 auto;
-            background: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
+            page-break-after: always;
         }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            padding: 5mm;
+            border: 1px solid #ddd;
+            font-size: 8pt;
+            box-sizing: border-box;
+        }
+
         .header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 2mm;
         }
+
         .header div {
             width: 45%;
         }
+
         .header div input {
             width: 100%;
             border: none;
             border-bottom: 1px solid #000;
-            padding: 5px;
+            padding: 1mm;
         }
+
         .table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 2mm;
         }
+
         .table th, .table td {
             border: 1px solid #000;
             text-align: center;
-            padding: 10px;
+            padding: 1mm;
+            font-size: 8pt;
         }
+
         .table th {
             background-color: #e9e9e9;
         }
+
         .table td input {
             width: 100%;
             border: none;
             text-align: center;
+            font-size: 8pt;
         }
+
         .footer {
             display: flex;
             justify-content: space-between;
-            margin-top: 20px;
+            margin-top: 2mm;
         }
+
         .footer div {
             width: 45%;
         }
+
         .footer div input {
             width: 100%;
             border: none;
             border-bottom: 1px solid #000;
-            padding: 5px;
+            padding: 1mm;
         }
+
         .note {
-            margin-top: 20px;
-            font-size: 14px;
+            margin-top: 2mm;
+            font-size: 7pt;
         }
+
         .total-row {
             font-weight: bold;
             background-color: #f0f0f0;
         }
-        input {
-    font-size: 24px; /* 默认字体大小 */
-}
-.kg, .harga, .jumlah {
-    font-size: 18px; /* 特定列的字体大小 */
-}
-.table td input {
-    font-size: 18px; /* 表格内字体大小 */
-}
 
-        
+        input {
+            font-size: 8pt !important;
+        }
+
+        .kg, .harga, .jumlah {
+            font-size: 8pt !important;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .page {
+                width: 210mm;
+                height: 297mm;
+            }
+
+            .container {
+                border: 0.5pt solid #000;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div>
-                <label for="ms">M/S:</label>
-                <input type="text" id="ms">
+    <div class="page">
+        <!-- Invoice 1 -->
+        <div class="container">
+            <div class="header">
+                <div>
+                    <label for="ms-1">M/S:</label>
+                    <input type="text" id="ms-1">
+                </div>
+                <div>
+                    <label for="date-1">TARIKH:</label>
+                    <input type="text" id="date-1" readonly>
+                </div>
             </div>
-            <div>
-                <label for="date">TARIKH:</label>
-                <input type="text" id="date" readonly>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>JENIS-JENIS BARANG</th>
+                        <th>KG</th>
+                        <th>HARGA</th>
+                        <th>JUMLAH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                        <tr><td>1</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>2</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>3</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>4</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>5</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>6</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>7</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>8</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>9</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="4">Jumlah Total</td>
+                        <td><input type="text" id="jumlah-total-1" readonly></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="footer">
+                <div>
+                    <label for="received-1">Diterima oleh:</label>
+                    <input type="text" id="received-1">
+                </div>
+                <div>
+                    <label for="confirmed-1">Disahkan oleh:</label>
+                    <input type="text" id="confirmed-1" value="Elson Chin" readonly>
+                </div>
+            </div>
+            <div class="note">
+                <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
             </div>
         </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>NO</th>
-                    <th>JENIS-JENIS BARANG</th>
-                    <th>KG</th>
-                    <th>HARGA</th>
-                    <th>JUMLAH</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 12 rows -->
-                <tr><td>1</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>2</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>3</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>4</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>5</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>6</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>7</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>8</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>9</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-                <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
-            </tbody>
-            <tfoot>
-                <tr class="total-row">
-                    <td colspan="4">Jumlah Total</td>
-                    <td><input type="text" id="jumlah-total" readonly></td>
-                </tr>
-            </tfoot>
-        </table>
-        <div class="footer">
-            <div>
-                <label for="received">Diterima oleh:</label>
-                <input type="text" id="received">
+
+        <!-- Invoice 2 -->
+        <div class="container">
+            <div class="header">
+                <div>
+                    <label for="ms-2">M/S:</label>
+                    <input type="text" id="ms-2">
+                </div>
+                <div>
+                    <label for="date-2">TARIKH:</label>
+                    <input type="text" id="date-2" readonly>
+                </div>
             </div>
-            <div>
-                <label for="confirmed">Disahkan oleh:</label>
-                <input type="text" id="confirmed" value="Elson Chin" readonly>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>JENIS-JENIS BARANG</th>
+                        <th>KG</th>
+                        <th>HARGA</th>
+                        <th>JUMLAH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>2</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>3</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>4</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>5</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>6</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>7</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>8</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>9</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="4">Jumlah Total</td>
+                        <td><input type="text" id="jumlah-total-2" readonly></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="footer">
+                <div>
+                    <label for="received-2">Diterima oleh:</label>
+                    <input type="text" id="received-2">
+                </div>
+                <div>
+                    <label for="confirmed-2">Disahkan oleh:</label>
+                    <input type="text" id="confirmed-2" value="Elson Chin" readonly>
+                </div>
+            </div>
+            <div class="note">
+                <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
             </div>
         </div>
-        <div class="note">
-            <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
+                <!-- Invoice 3 -->
+        <div class="container">
+            <div class="header">
+                <div>
+                    <label for="ms-3">M/S:</label>
+                    <input type="text" id="ms-3">
+                </div>
+                <div>
+                    <label for="date-3">TARIKH:</label>
+                    <input type="text" id="date-3" readonly>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>JENIS-JENIS BARANG</th>
+                        <th>KG</th>
+                        <th>HARGA</th>
+                        <th>JUMLAH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                        <tr><td>1</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>2</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>3</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>4</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>5</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>6</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>7</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>8</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>9</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="4">Jumlah Total</td>
+                        <td><input type="text" id="jumlah-total-3" readonly></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="footer">
+                <div>
+                    <label for="received-3">Diterima oleh:</label>
+                    <input type="text" id="received-3">
+                </div>
+                <div>
+                    <label for="confirmed-3">Disahkan oleh:</label>
+                    <input type="text" id="confirmed-3" value="Elson Chin" readonly>
+                </div>
+            </div>
+            <div class="note">
+                <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
+            </div>
+        </div>
+
+        <!-- Invoice 4 -->
+        <div class="container">
+            <div class="header">
+                <div>
+                    <label for="ms-4">M/S:</label>
+                    <input type="text" id="ms-4">
+                </div>
+                <div>
+                    <label for="date-4">TARIKH:</label>
+                    <input type="text" id="date-4" readonly>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>JENIS-JENIS BARANG</th>
+                        <th>KG</th>
+                        <th>HARGA</th>
+                        <th>JUMLAH</th>
+                    </tr>
+                </thead>
+                <tbody>
+                                        <tr><td>1</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>2</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>3</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>4</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>5</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>6</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>7</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>8</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>9</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td colspan="4">Jumlah Total</td>
+                        <td><input type="text" id="jumlah-total-4" readonly></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="footer">
+                <div>
+                    <label for="received-4">Diterima oleh:</label>
+                    <input type="text" id="received-4">
+                </div>
+                <div>
+                    <label for="confirmed-4">Disahkan oleh:</label>
+                    <input type="text" id="confirmed-4" value="Elson Chin" readonly>
+                </div>
+            </div>
+            <div class="note">
+                <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
+            </div>
         </div>
     </div>
 
     <script>
-        // 自动填写当天日期 (日/月/年格式)
-        document.getElementById('date').value = new Date().toLocaleDateString('en-GB');
+        // Set current date for all date fields
+        function setDates() {
+            const currentDate = new Date().toLocaleDateString('en-GB');
+            for(let i = 1; i <= 4; i++) {
+                document.getElementById(`date-${i}`).value = currentDate;
+            }
+        }
 
-        // 计算 Jumlah (KG * HARGA)
-        function calculateJumlah(element) {
+        // Format numbers with thousand separator
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Calculate amount for each row
+        function calculateJumlah(element, invoiceNum) {
             const row = element.parentElement.parentElement;
             const kg = parseFloat(row.querySelector('.kg').value) || 0;
             const harga = parseFloat(row.querySelector('.harga').value) || 0;
-            row.querySelector('.jumlah').value = (kg * harga).toFixed(2);
-            calculateTotal();
+            const result = (kg * harga).toFixed(2);
+            row.querySelector('.jumlah').value = formatNumber(result);
+            calculateTotal(invoiceNum);
         }
 
-        // 计算所有 JUMLAH 的总和
-        function calculateTotal() {
-            const jumlahFields = document.querySelectorAll('.jumlah');
+        // Calculate total for each invoice
+        function calculateTotal(invoiceNum) {
+            const container = document.querySelector(`#jumlah-total-${invoiceNum}`).closest('.container');
+            const jumlahFields = container.querySelectorAll('.jumlah');
             let total = 0;
             jumlahFields.forEach(field => {
-                total += parseFloat(field.value) || 0;
+                total += parseFloat(field.value.replace(/,/g, '')) || 0;
             });
-            document.getElementById('jumlah-total').value = total.toFixed(2);
+            document.getElementById(`jumlah-total-${invoiceNum}`).value = formatNumber(total.toFixed(2));
         }
+
+        // Initialize dates when page loads
+        window.onload = setDates;
     </script>
 </body>
 </html>
