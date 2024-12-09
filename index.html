@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .header div {
+            width: 45%;
+        }
+        .header div input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #000;
+            padding: 5px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #000;
+            text-align: center;
+            padding: 10px;
+        }
+        .table th {
+            background-color: #e9e9e9;
+        }
+        .table td input {
+            width: 100%;
+            border: none;
+            text-align: center;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .footer div {
+            width: 45%;
+        }
+        .footer div input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #000;
+            padding: 5px;
+        }
+        .note {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #f0f0f0;
+        }
+        input {
+    font-size: 24px; /* 默认字体大小 */
+}
+.kg, .harga, .jumlah {
+    font-size: 18px; /* 特定列的字体大小 */
+}
+.table td input {
+    font-size: 18px; /* 表格内字体大小 */
+}
+
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <label for="ms">M/S:</label>
+                <input type="text" id="ms">
+            </div>
+            <div>
+                <label for="date">TARIKH:</label>
+                <input type="text" id="date" readonly>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>JENIS-JENIS BARANG</th>
+                    <th>KG</th>
+                    <th>HARGA</th>
+                    <th>JUMLAH</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 12 rows -->
+                <tr><td>1</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>2</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>3</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>4</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>5</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>6</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>7</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>8</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>9</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this)"></td><td><input type="number" class="harga" oninput="calculateJumlah(this)"></td><td><input type="text" class="jumlah" readonly></td></tr>
+            </tbody>
+            <tfoot>
+                <tr class="total-row">
+                    <td colspan="4">Jumlah Total</td>
+                    <td><input type="text" id="jumlah-total" readonly></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="footer">
+            <div>
+                <label for="received">Diterima oleh:</label>
+                <input type="text" id="received">
+            </div>
+            <div>
+                <label for="confirmed">Disahkan oleh:</label>
+                <input type="text" id="confirmed" value="Elson Chin" readonly>
+            </div>
+        </div>
+        <div class="note">
+            <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
+        </div>
+    </div>
+
+    <script>
+        // 自动填写当天日期 (日/月/年格式)
+        document.getElementById('date').value = new Date().toLocaleDateString('en-GB');
+
+        // 计算 Jumlah (KG * HARGA)
+        function calculateJumlah(element) {
+            const row = element.parentElement.parentElement;
+            const kg = parseFloat(row.querySelector('.kg').value) || 0;
+            const harga = parseFloat(row.querySelector('.harga').value) || 0;
+            row.querySelector('.jumlah').value = (kg * harga).toFixed(2);
+            calculateTotal();
+        }
+
+        // 计算所有 JUMLAH 的总和
+        function calculateTotal() {
+            const jumlahFields = document.querySelectorAll('.jumlah');
+            let total = 0;
+            jumlahFields.forEach(field => {
+                total += parseFloat(field.value) || 0;
+            });
+            document.getElementById('jumlah-total').value = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
