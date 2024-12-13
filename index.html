@@ -27,6 +27,18 @@
             margin: 0 auto;
             page-break-after: always;
         }
+        /* 在现有的 CSS 中添加以下样式 */
+.signature-img {
+    height: 30px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.signature-container {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
 
         .container {
             width: 100%;
@@ -168,6 +180,9 @@
                     <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>13</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>14</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>15</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                 </tbody>
                 <tfoot>
                     <tr class="total-row">
@@ -182,9 +197,11 @@
                     <input type="text" id="received-1">
                 </div>
                 <div>
-                    <label for="confirmed-1">Disahkan oleh:</label>
-                    <input type="text" id="confirmed-1" value="Elson Chin" readonly>
-                </div>
+    <label>Disahkan oleh:</label>
+    <div class="signature-container">
+        <img src="https://jinadaz.github.io/code/yangsign.png" class="signature-img" alt="signature">
+    </div>
+</div>
             </div>
             <div class="note">
                 <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
@@ -226,6 +243,9 @@
                     <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>13</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>14</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>15</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                 </tbody>
                 <tfoot>
                     <tr class="total-row">
@@ -240,9 +260,11 @@
                     <input type="text" id="received-2">
                 </div>
                 <div>
-                    <label for="confirmed-2">Disahkan oleh:</label>
-                    <input type="text" id="confirmed-2" value="Elson Chin" readonly>
-                </div>
+    <label>Disahkan oleh:</label>
+    <div class="signature-container">
+        <img src="https://jinadaz.github.io/code/yangsign.png" class="signature-img" alt="signature">
+    </div>
+</div>
             </div>
             <div class="note">
                 <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
@@ -283,6 +305,9 @@
                     <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>13</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>14</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>15</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                 </tbody>
                 <tfoot>
                     <tr class="total-row">
@@ -297,9 +322,11 @@
                     <input type="text" id="received-3">
                 </div>
                 <div>
-                    <label for="confirmed-3">Disahkan oleh:</label>
-                    <input type="text" id="confirmed-3" value="Elson Chin" readonly>
-                </div>
+    <label>Disahkan oleh:</label>
+    <div class="signature-container">
+        <img src="https://jinadaz.github.io/code/yangsign.png" class="signature-img" alt="signature">
+    </div>
+</div>
             </div>
             <div class="note">
                 <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
@@ -341,6 +368,9 @@
                     <tr><td>10</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>11</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                     <tr><td>12</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>13</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>14</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
+                    <tr><td>15</td><td><input type="text"></td><td><input type="number" class="kg" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="number" class="harga" oninput="calculateJumlah(this, 2)" min="0" step="0.01"></td><td><input type="text" class="jumlah" readonly></td></tr>
                 </tbody>
                 <tfoot>
                     <tr class="total-row">
@@ -354,10 +384,13 @@
                     <label for="received-4">Diterima oleh:</label>
                     <input type="text" id="received-4">
                 </div>
-                <div>
-                    <label for="confirmed-4">Disahkan oleh:</label>
-                    <input type="text" id="confirmed-4" value="Elson Chin" readonly>
-                </div>
+               <div>
+    <label>Disahkan oleh:</label>
+    <div class="signature-container">
+        <img src="https://jinadaz.github.io/code/yangsign.png" class="signature-img" alt="signature">
+        
+    </div>
+</div>
             </div>
             <div class="note">
                 <strong>Nota:</strong> Barang yang sudah dijual tidak boleh dikembalikan.
